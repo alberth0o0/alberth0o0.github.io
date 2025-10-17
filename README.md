@@ -1,1 +1,4 @@
-# alberth0o0.github.io
+# Albii's Rhythm Game Index
+
+This repo is my personal; portfolio website which I am writing for ITD110, a
+web design class at Arlington Tech
