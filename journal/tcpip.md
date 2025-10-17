@@ -2,13 +2,13 @@
 
 The model has four layers:
 
-# Application
+## Application
 
-# Transport
+## Transport
 
-# Internet
+## Internet
 
-# Link (Network Access)
+## Link (Network Access)
 
 Protocols in this later include:
 
