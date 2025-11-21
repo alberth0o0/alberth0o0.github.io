@@ -1,0 +1,20 @@
+table, tr, th, td{                                                      
+background-color: #dde0ab;
+border: 1px solid black;                                            
+border-collapse: collapse;                                          
+}                                                                  
+body{                                                                   
+background-color: #feffdf;                                     
+}                                                                                                                                                    
+#firstlink{
+    background-color:blanchedalmond
+}
+#info{
+    background-color:pink;
+}
+.ttitle{
+    background-color:#97cba9;
+}
+.title{
+    color: #668ba4;
+}
