@@ -1,7 +1,11 @@
 # Dazey Day
 
 ## Setting
-
+Players start off in their apartment and eventually make their way through
+their day to wake up and get ready for their concert they are performing!
+Getting throug their day, they take a relaxing walk through the neighborhood, 
+get ice cream, and come back. Eventually, the players will make it to
+their concert.
 
 
 ## Map
@@ -15,8 +19,6 @@ graph TD;
     Street-->Concert;
 ```
 
-The player starts on the bus, and then is directed into the Commons. T
-They can explore, but must eventually make their way to rm511.
 
 ## Story
 The user is a musician that suddenly woke from their sleep at 12:00 AM on
@@ -36,3 +38,5 @@ The variable starts at 0 at the start of the game, but with each series
 of events that ends the value will go up by one. Each value of `recollection`
 triggers a different choice for each series of events you encounter again.
 
+Some more niche variables would be `takeWalk`, `iceCream`,`kitty`, and more
+WiP. I will update as I go and actually code my game "(~_~
