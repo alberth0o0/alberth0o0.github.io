@@ -13,9 +13,9 @@ their concert.
 ```mermaid
 graph TD;
     Bedroom-->Street;
-    Street-->Ice cream shop;
+    Street-->IceCreamShop;
     Street-->Crosswalk;
-    Street-->Train station;
+    Street-->TrainStation;
     Street-->Concert;
 ```
 
