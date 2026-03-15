@@ -55,7 +55,7 @@ function room() {
         }
         else {
             stayHere();
-            waitThenCall(room);
+            waitThenCall(room());
         }
         
     }
@@ -69,19 +69,69 @@ function street() {
     print("Amidst the heat, you see a ice cream shop across the street.\nDo you want to go get some (ice cream) or (keep walking)?");
     
     function processInput(input){
-        if (input.toLowerCase() === "locationa") {
-            locationA();
-        } else {
+        if (input.toLowerCase() === "ice cream") {
+            iceCreamShop();
+        } 
+        else if (input.toLowerCase() === "keep walking") {
+            clear();
+            print("You decide to keep walking and endure the heat for a bit longer. Soon  you realize you can't take it much longer and head back home to cool down.");
+            print("Exhausted, you take a nice, cool shower. You lose track of time and before you know it, it's 7PM. You missed your show.");
+            gameActive = false;
+        }
+        else {
             stayHere();
-            waitThenCall(locationB);
+            waitThenCall(street());
+        }
+        
+    }
+    waitForInput(processInput);
+}
+
+function iceCreamShop() { 
+    clear();
+    print("You decide to go get some ice cream to cool down. As you enter the shop, the sweet aroma of freshly made waffle cones fills the air. You look at the menu and see a variety of flavors to choose from. You decide to go with a classic vanilla cone and walk out the store.");
+    print("\"Thank you!\" You say to the cashier as you leave. You take a few licks of your ice cream, savoring the cool treat.");
+    print("As you continue walking, a cat suddenly jumps out from behind a bush and startles you.");
+    print("Processing the shock, you see the cat is actually a cute little kitten. You bend down and try to pet it, but it runs away.");
+    print("Should you (chase) the kitten or (ignore) it and continue walking?");
+
+    function processInput(input){
+        if (input.toLowerCase() === "chase") {
+            crosswalk();
+        }
+        else if (input.toLowerCase() === "ignore") {
+            clear();
+            print("You decide to ignore the kitten and continue walking. As you walk, you feel more relaxed, but you lose yourself in thought and before you know it, it's 7PM. You missed your show.");
+            gameActive = false;
+        }
+        else {
+            stayHere();
+            waitThenCall(iceCreamShop());
         }
     }
     waitForInput(processInput);
 }
 
-//finally, make sure you customize this to tell it what should happen at the
-//very start. For this simple example, any input will bring you
-//to locationA
+function crosswalk() {
+    clear();
+    print("You decide to chase the kitten and follow it across the street. As you run after it, you see a truck speeding towards the kitten! You quickly jump out of the way just in time, but unfortunately, you sprain your ankle in the process.");
+    print("The truck swerves back and forth. CRASH! The car hits a nearby light pole. Your heart races, trying to find any way out of this situation now with your ankle sprained.");
+    print("You feel helpless. You turn to look to the truck and suddenly metal cylinders start falling out of the truck towards you. You close your eyes and braced.");
+    knowledge += 1;
+    print("Press 'enter' to continue...");
+
+    function processInput(input){
+        if (input.toLowerCase() === "") {
+            room();
+        }
+        else {
+            stayHere();
+            waitThenCall(crosswalk());
+        }
+    }
+    waitForInput(processInput);
+}
+
 function start(){
     print("Press `enter` to start...");
 
