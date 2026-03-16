@@ -1,10 +1,8 @@
 let gameActive = true; //this variable is required. 
-
-
                        //to stop the game, set it to false.
 
 //Declare your other global variables here
-let knowledge = 0;
+let loop = 0;
 
 //If you need, add any "helper" functions here
 
@@ -12,51 +10,73 @@ let knowledge = 0;
 //Make one function for each location
 function room() {
     clear();
+
+
     print("BEEP!");
     setTimeout(function() {
         print(" BEEP!");
         setTimeout(function() {
             print("  BEEP!");
             setTimeout(function() {
-                print("You reluctantly throw your arms up to let your hand get in reach for your alarm clock. 12:00AM, August 15th.");
-                print("You slowly raise your head and rubbed your eyes, then looked at the blue-ish moonlit room around you.");
-                print("Yawwwwwwwn! After analyzing your surroundings, you look down to an absolute mess of stage plans, dance routines, and music sheets scattered all over the desk.");
-                print("\"Oh shoot! It's my concert today!\" You exclaimed to yourself. \"I must've passed out working on these.. My gosh..\"");
-                print("With some coffee still left over in your cup by the top left corner of your desk, you continue working throughout the night.");
+                if (loop === 0) {
+                    print("You reluctantly throw your arms up to let your hand get in reach for your alarm clock. 12:00AM, August 15th.");
+                    print("You slowly raise your head and rubbed your eyes, then looked at the blue-ish moonlit room around you.");
+                    print("Yawwwwwwwn! After analyzing your surroundings, you look down to an absolute mess of stage plans, dance routines, and music sheets scattered all over the desk.");
+                    print("\"Oh shoot! It's my concert today!\" You exclaimed to yourself. \"I must've passed out working on these.. My gosh..\"");
+                    print("With some coffee still left over in your cup by the top left corner of your desk, you continue working throughout the night.");
     
-                print("\n\nAfter a while of planning, the sun's rays pierces through your window illuminating everything into visibility.");
-                print("You sit up from your chair and take a looooong stretch.");
-                print("4PM August 15th. Time flies by..");
-                print("You feel a bit sleepy but know the show must go on..");
-                print("Should you take a (walk) or (stay home)?");
+                    print("\n\nAfter a while of planning, the sun's rays pierces through your window illuminating everything into visibility.");
+                    print("You sit up from your chair and take a looooong stretch.");
+                    print("4PM August 15th. Time flies by..");
+                    print("You feel a bit sleepy but know the show must go on..");
+                    print("Should you take a (walk) or (stay home)?");
+                } 
+                
+                else if (loop === 1) {
+                    print("Your head shot up and your body was trembling. You touched your body for any injuries but you were completely fine.");
+                    print("12:00AM, August 15th on the clock.\n. You look around and see the blue-ish moonlit room around you.\n\"What the heck... I already worked on these...\n\nWas that a dream?\"");
+                    print("\n\nPress 'enter' to continue...");
+                }
                 },1000);
         },750);
     },750);
     
     function processInput(input){
-        if (input.toLowerCase() === "walk") {
-            street();
-        }
-
-        else if (input.toLowerCase() === "stay home") {
-            clear();
-            print("You decide to stay home and take a little nap as a reward for your hard work (you did stay up all night after all).");
-            setTimeout(function() {
-                print("...");
+        if (loop === 0) {
+            if (input.toLowerCase() === "walk") {
+                street();
+            }
+            
+            else if (input.toLowerCase() === "stay home") {
+                clear();
+                print("You decide to stay home and take a little nap as a reward for your hard work (you did stay up all night after all).");
                 setTimeout(function() {
                     print("...");
                     setTimeout(function() {
-                        print("\nYou wake up and realize you have a concert to perform in a few hours. You quickly get ready and rush out the door, but unfortunately, you missed your show.");
-                        print("Better luck next time!");
-                        gameActive = false;
+                        print("...");
+                        setTimeout(function() {
+                            print("\nYou wake up and realize you have a concert to perform in a few hours. You quickly get ready and rush out the door, but unfortunately, you missed your show.");
+                            print("Better luck next time!");
+                            gameActive = false;
+                        },2000);
                     },2000);
-                },2000);
-            },5000);
+                },5000);
+            }
+            else {
+                stayHere();
+                waitThenCall(room());
+            }
         }
-        else {
-            stayHere();
-            waitThenCall(room());
+        else if (loop === 1) {
+            if (input.toLowerCase() === "") {
+                street();
+            }
+            else {
+                stayHere();
+                waitThenCall(room());
+            }
         }
+
         
     }
     waitForInput(processInput);
@@ -64,23 +84,52 @@ function room() {
 
 function street() {
     clear();
-    print("You decide to take a walk to clear your head and get some fresh air. As you step outside, you feel the cool breeze on your face and the warmth of the sun on your skin. You take a deep breath and enjoy the moment.");
-    print("The sun makes the day nice, but it's rays are piercing your skin a bit too much.");
-    print("Amidst the heat, you see a ice cream shop across the street.\nDo you want to go get some (ice cream) or (keep walking)?");
-    
+    if (loop === 0) {
+        print("You decide to take a walk to clear your head and get some fresh air. As you step outside, you feel the cool breeze on your face and the warmth of the sun on your skin. You take a deep breath and enjoy the moment.");
+        print("The sun makes the day nice, but it's rays are piercing your skin a bit too much.");
+        print("Amidst the heat, you see a ice cream shop across the street.\nDo you want to go get some (ice cream) or (keep walking)?");
+    }
+    else if (loop === 1) {
+        print("You walk down the street with your ice cream in hand still processing the shock.");
+        print("A kitten suddenly jumps out from behind a bush and startles you again.");
+        print("\"I've seen you before...\" You say to yourself. You bend down and try to pet it, but it runs away.");
+        print("You look to your left as the kitten ran across the crosswalk. You look to your right and see a truck speeding towards the kitten!");
+        print("BAM! The truck swerves to avoid the kitten and crashes into the light pole");
+        print("Do you (chase) the kitten or (call 911) for help?");
+    }
     function processInput(input){
-        if (input.toLowerCase() === "ice cream") {
-            iceCreamShop();
-        } 
-        else if (input.toLowerCase() === "keep walking") {
-            clear();
-            print("You decide to keep walking and endure the heat for a bit longer. Soon  you realize you can't take it much longer and head back home to cool down.");
-            print("Exhausted, you take a nice, cool shower. You lose track of time and before you know it, it's 7PM. You missed your show.");
-            gameActive = false;
+        if (loop === 0) {
+            if (input.toLowerCase() === "ice cream") {
+                iceCreamShop();
+            } 
+            else if (input.toLowerCase() === "keep walking") {
+                clear();
+                print("You decide to keep walking and endure the heat for a bit longer. Soon  you realize you can't take it much longer and head back home to cool down.");
+                print("Exhausted, you take a nice, cool shower. You lose track of time and before you know it, it's 7PM. You missed your show.");
+                gameActive = false;
+            }
+            else {
+                stayHere();
+                waitThenCall(street());
+            }
         }
-        else {
-            stayHere();
-            waitThenCall(street());
+        else if (loop === 1) {
+            if (input.toLowerCase() === "chase") {
+                crosswalk();
+            }
+            else if (input.toLowerCase() === "call 911") {
+                clear();
+                print("You quickly call 911 to report the accident. The operator asks for your location and details about the incident.");
+                print("As you explain the situation, steel beams being carried by a crane above you SNAPS and falls on top of you.");
+                loop =+ 1;
+                print("Press 'enter' to continue...");
+            
+                gameActive = false;
+            }
+            else {
+                stayHere();
+                waitThenCall(street());
+            } 
         }
         
     }
