@@ -206,6 +206,9 @@ function school() {
     else if (metTobias === true && hasGum === false){
         print("\n\"I remember seeing gum in the kitchen before...\"");
     }
+    else {
+        print("\n\"Let's give this uggo his gum...\"");
+    }
     print("\nWhere do you want to go next? Say one of these choices:" +
         "\n\tScience lab" +
         "\n\tBathroom" +
@@ -229,9 +232,16 @@ function school() {
 
 function bathroom() {
     clear();
-    print("\nGumball makes his way to the bathroom and looks around. \"What you lookin' for?\" Tobias says. \"My paper...\"\n\"Oh.. What a shame it would be if someone just left it in the science lab...\" Tobias says. Gumball looks at him and says \"You wouldn't do that to me, would you?\" Tobias just smirks and walks away.");
-    print("\"HEY MAN WAIT! I NEED THIS PLEASE MAN.\" Tobias stops and looks at Gumball. \"Fine, but you gotta do something for me first.\" Tobias says. \"What?\" Gumball says. \"I need some gum.\" Tobias says.");
-    print("\n\"Bro what.\" Gumball says. \"I gotta get the hot babes! My breath smells like a dead fish!\" Tobias says. Gumball is very confused and doesn't know what to do. \"Fine, I'll get some gum.\" Gumball says.");
+    if (metTobias === false) {
+        print("\nGumball makes his way to the bathroom and looks around. \"What you lookin' for?\" Tobias says. \"My paper...\"\n\"Oh.. What a shame it would be if someone just left it in the science lab...\" Tobias says. Gumball looks at him and says \"You wouldn't do that to me, would you?\" Tobias just smirks and walks away.");
+        print("\"HEY MAN WAIT! I NEED THIS PLEASE MAN.\" Tobias stops and looks at Gumball. \"Fine, but you gotta do something for me first.\" Tobias says. \"What?\" Gumball says. \"I need some gum.\" Tobias says.");
+        print("\n\"Bro what.\" Gumball says. \"I gotta get the hot babes! My breath smells like a dead fish!\" Tobias says. Gumball is very confused and doesn't know what to do. \"Fine, I'll get some gum.\" Gumball says.");
+    }
+    else if (metTobias === true && hasGum === false){
+        print("\n\"Where's my gum man?\" Tobias says. \"No gum, no paper.\"");
+    }
+    else {
+        print("\nGumball gives Tobias the gum and gets his paper back
     print("\nPress any key to go back.");
     function processInput(input){
         school();
