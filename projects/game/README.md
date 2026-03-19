@@ -1,42 +1,35 @@
-# Dazey Day
+# The Final Pages
 
 ## Setting
-Players start off in their apartment and eventually make their way through
-their day to wake up and get ready for their concert they are performing!
-Getting throug their day, they take a relaxing walk through the neighborhood, 
-get ice cream, and come back. Eventually, the players will make it to
-their concert.
-
+The setting starts at Gumball's house. The player navigates throughout his house to find pages and interact with his family and friends to find his essay pages. He can also enter school for the pages (yes they are that scattered).
 
 ## Map
-
 ```mermaid
 graph TD;
-    Bedroom-->Street;
-    Street-->IceCreamShop;
-    Street-->Crosswalk;
-    Street-->TrainStation;
-    Street-->Concert;
+    GumballsRoom<-->LivingRoom;
+    LivingRoom<-->Kitchen;
+    LivingRoom<-->SchoolHallway;
+    SchoolHallway<-->Bathroom
+    SchoolHallway<-->ScienceLab
+    SchoolHallway<-->Classroom;
 ```
 
 
 ## Story
-The user is a musician that suddenly woke from their sleep at 12:00 AM on
-August 15th. They remember that today is their concert! They get ready for
-their concert doing things such as taking a walk and getting ice cream to 
-calm their nerves. A cute cat catches their eye and tries to pet it. 
-It runs away but you pay no mind, until a truck goes in your direction. 
-They think they're done for when they woke up right back at their desk at
-12:00 AM on August 15th again.
-this mistake would cause a series of events that the user would have to
-navigate to get to their concert on time (and in one piece)!
+Ms. Simian assigned a 3 page essay that Gumball didn't want to do so he convinced his sister to write it for him. On the day the paper was due, Gumball finds out that it's missing from his backpack! He must find all of the pages at home and at school before the period creeps up on him.
 
 ## Global Variables
+The global variable would be:
+`pages` counting the amount he finds. The amount of pages would determine the ending Gumball would be in!
+`position` to keep track of the location of some places to accurately change descriptions when entering places. For example, going from the school to Gumball's house to not say "sliding down the stairs" when going from his bedroom to living room and instead simply saying he went to the living room.
 
-An important variable in the game would be `recollection`.
-The variable starts at 0 at the start of the game, but with each series
-of events that ends the value will go up by one. Each value of `recollection`
-triggers a different choice for each series of events you encounter again.
+The following is to keep track of a side quest Gumball encounters in the bathroom to access the last page.
+`hasKey`
+`hasGum`
+`metTobias`
 
-Some more niche variables would be `takeWalk`, `iceCream`,`kitty`, and more
-WiP. I will update as I go and actually code my game "(~_~
+The following is to prevent repetitive dialog as well as prevent the code from giving the same pages Gumball found.
+`visitedroom`
+`visitedCouch`
+`visitedFridge`
+`visitedLab`
